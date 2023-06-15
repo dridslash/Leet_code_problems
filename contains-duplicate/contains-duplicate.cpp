@@ -1,12 +1,10 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-         set<int> du_chcker;
-        for(int i : nums){
-            if (du_chcker.find(i) == du_chcker.end())
-                du_chcker.insert(i);
-            else
-                return true;
+         sort(nums.begin(), nums.end());
+        for(int i = 0 ; i < nums.size() - 1 ; i++){
+                if (nums.at(i) == nums.at(i + 1))
+                    return true;
         }
         return false;
     }
